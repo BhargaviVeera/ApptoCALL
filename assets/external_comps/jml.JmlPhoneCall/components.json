@@ -1,0 +1,32 @@
+[{
+ "categoryString": "EXTENSION",
+ "dateBuilt": "2021-04-17T16:50:47+0200",
+ "nonVisible": "true",
+ "iconName": "/icone/music.png",
+ "methods": [
+  {
+   "deprecated": "false",
+   "name": "AcceptRingingCall",
+   "description": "AcceptRingingCall",
+   "params": []
+  },
+  {
+   "deprecated": "false",
+   "name": "EndCall",
+   "description": "EndCall",
+   "params": []
+  }
+ ],
+ "blockProperties": [],
+ "helpUrl": "",
+ "licenseName": "",
+ "type": "jml.JmlPhoneCall.JmlPhoneCall",
+ "androidMinSdk": 7,
+ "version": "1",
+ "external": "true",
+ "showOnPalette": "true",
+ "name": "JmlPhoneCall",
+ "helpString": "gestion appel telephoniquesjm Latour",
+ "properties": [],
+ "events": []
+}]

@@ -1,0 +1,678 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="component_event" id="|V?-]FC7an!d`QU~*@HZ" x="-690" y="-330">
+    <mutation component_type="Form" is_generic="false" instance_name="Screen1" event_name="Initialize"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="component_method" id="1[N7ZHp:/`mG2T`RVM8[">
+        <mutation component_type="Caller" method_name="GetAllCallLogs" is_generic="false" instance_name="Caller1"></mutation>
+        <field name="COMPONENT_SELECTOR">Caller1</field>
+        <next>
+          <block type="component_method" id="+Ct(5|Ykw~Vc9Q78~2;:">
+            <mutation component_type="Form" method_name="AskForPermission" is_generic="false" instance_name="Screen1"></mutation>
+            <field name="COMPONENT_SELECTOR">Screen1</field>
+            <value name="ARG0">
+              <block type="text" id="%uTjUaF[I;lY:hM_+hX%">
+                <field name="TEXT">ANSWER_PHONE_CALLS</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="*[FWPPA2qMX[H;9fR!-C" x="-30" y="-330">
+    <mutation component_type="Form" is_generic="false" instance_name="Screen1" event_name="PermissionGranted"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="component_method" id="mSng-%p8wR6XsPFtzKIs">
+        <mutation component_type="Caller" method_name="GetAllCallLogs" is_generic="false" instance_name="Caller1"></mutation>
+        <field name="COMPONENT_SELECTOR">Caller1</field>
+      </block>
+    </statement>
+  </block>
+  <block type="component_set_get" id="B*@V.BPG^F*]8b7xLvt*" x="290" y="-270">
+    <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_out_phno_copy"></mutation>
+    <field name="COMPONENT_SELECTOR">lbl_out_phno_copy</field>
+    <field name="PROP">Text</field>
+  </block>
+  <block type="component_event" id="iHR,$YorYq+iXBDZj;*:" x="-690" y="-190">
+    <mutation component_type="Button" is_generic="false" instance_name="btn_incomingcall" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">btn_incomingcall</field>
+    <statement name="DO">
+      <block type="component_set_get" id="khh67%X#Xh-7W)tfuL}.">
+        <mutation component_type="PhoneCall" set_or_get="set" property_name="PhoneNumber" is_generic="false" instance_name="Phone_Call1"></mutation>
+        <field name="COMPONENT_SELECTOR">Phone_Call1</field>
+        <field name="PROP">PhoneNumber</field>
+        <value name="VALUE">
+          <block type="component_set_get" id="2upYHx3AZR-:FB?MvtcQ">
+            <mutation component_type="TextBox" set_or_get="get" property_name="Text" is_generic="false" instance_name="txt_phno"></mutation>
+            <field name="COMPONENT_SELECTOR">txt_phno</field>
+            <field name="PROP">Text</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_method" id="~Z=.Nxj3EUvBS_iU6mLo">
+            <mutation component_type="PhoneCall" method_name="MakePhoneCallDirect" is_generic="false" instance_name="Phone_Call1"></mutation>
+            <field name="COMPONENT_SELECTOR">Phone_Call1</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="X`3B{pLx,s8Y?i0~;j0d" x="-30" y="-210">
+    <mutation component_type="Button" is_generic="false" instance_name="btn_calldetails" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">btn_calldetails</field>
+    <statement name="DO">
+      <block type="component_method" id="5xM7fN=%VCf3recw*SeP">
+        <mutation component_type="Caller" method_name="GetAllCallLogs" is_generic="false" instance_name="Caller1"></mutation>
+        <field name="COMPONENT_SELECTOR">Caller1</field>
+      </block>
+    </statement>
+  </block>
+  <block type="math_number" id="(4ZCU__9MID:VYcBGkB^" x="730" y="-150">
+    <field name="NUM">1</field>
+  </block>
+  <block type="component_event" id="Aw5lRdBeKOW3dj]1Aw.F" x="-690" y="-70">
+    <mutation component_type="PhoneCall" is_generic="false" instance_name="Phone_Call1" event_name="PhoneCallStarted"></mutation>
+    <field name="COMPONENT_SELECTOR">Phone_Call1</field>
+    <statement name="DO">
+      <block type="component_method" id="jUEx~Rp{84tYj.o$trP=">
+        <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="Notifier1"></mutation>
+        <field name="COMPONENT_SELECTOR">Notifier1</field>
+        <value name="ARG0">
+          <block type="text_join" id="l1dRH-$M8tj]RLW=efCL">
+            <mutation items="4"></mutation>
+            <value name="ADD0">
+              <block type="text" id="Y~cq.%:S~#K*Gv5~m/f7">
+                <field name="TEXT">Start Call</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="lexical_variable_get" id="}admRJeqd(Nb=0~5l8b5">
+                <mutation>
+                  <eventparam name="status"></eventparam>
+                </mutation>
+                <field name="VAR">status</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="p1`86{ugR1aVGUp9`)|a">
+                <field name="TEXT">Phone Number</field>
+              </block>
+            </value>
+            <value name="ADD3">
+              <block type="lexical_variable_get" id="zZ(.YdJcPMwl$1,GUyqv">
+                <mutation>
+                  <eventparam name="phoneNumber"></eventparam>
+                </mutation>
+                <field name="VAR">phoneNumber</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="LzMp-pk%xGnyib6VJ8Jm" x="-30" y="-90">
+    <mutation component_type="Caller" is_generic="false" instance_name="Caller1" event_name="GotCallLogs"></mutation>
+    <field name="COMPONENT_SELECTOR">Caller1</field>
+    <statement name="DO">
+      <block type="component_set_get" id="~tt^/]WOypTNFRNt8}UJ">
+        <mutation component_type="ListView" set_or_get="set" property_name="Elements" is_generic="false" instance_name="List_View1"></mutation>
+        <field name="COMPONENT_SELECTOR">List_View1</field>
+        <field name="PROP">Elements</field>
+        <value name="VALUE">
+          <block type="lexical_variable_get" id="F:76]es394{(#oOV+JU3">
+            <mutation>
+              <eventparam name="callLogList"></eventparam>
+            </mutation>
+            <field name="VAR">callLogList</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="6OXqDM8c+lAdt%Z=TBSe">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_out_details"></mutation>
+            <field name="COMPONENT_SELECTOR">lbl_out_details</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="lists_select_item" id="ASo.8J%C-~Th/~Hi`.sy">
+                <value name="LIST">
+                  <block type="component_set_get" id="%uw~WYGH9U1R../#~0Gw">
+                    <mutation component_type="ListView" set_or_get="get" property_name="Elements" is_generic="false" instance_name="List_View1"></mutation>
+                    <field name="COMPONENT_SELECTOR">List_View1</field>
+                    <field name="PROP">Elements</field>
+                  </block>
+                </value>
+                <value name="NUM">
+                  <block type="math_number" id="U+3`W[XFV^$6S9geG2,.">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="ws)*!EI3_m!CyIu8_gtT">
+                <mutation component_type="ListView" set_or_get="set" property_name="Elements" is_generic="false" instance_name="List_View1"></mutation>
+                <field name="COMPONENT_SELECTOR">List_View1</field>
+                <field name="PROP">Elements</field>
+                <value name="VALUE">
+                  <block type="text_split" id="$l_{THw7|]MXo}FOB[el">
+                    <mutation mode="SPLIT"></mutation>
+                    <field name="OP">SPLIT</field>
+                    <value name="TEXT">
+                      <block type="component_set_get" id="|Z_ex.#L^fKk*Wi/bdUk">
+                        <mutation component_type="Label" set_or_get="get" property_name="Text" is_generic="false" instance_name="lbl_out_details"></mutation>
+                        <field name="COMPONENT_SELECTOR">lbl_out_details</field>
+                        <field name="PROP">Text</field>
+                      </block>
+                    </value>
+                    <value name="AT">
+                      <block type="text" id="vs%ec2vrR_f3/-UBGX)+">
+                        <field name="TEXT">,</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_if" id="t(x`ZM#5JaYvXt.yKRl~">
+                    <value name="IF0">
+                      <block type="logic_compare" id="$7*+o_Z]/=F+^N$j3VVi">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="lists_select_item" id="-GVnjr?F3J^dNWJl*-Vn">
+                            <value name="LIST">
+                              <block type="component_set_get" id="_W}AKbbi,1ZH)Pp5J=ex">
+                                <mutation component_type="ListView" set_or_get="get" property_name="Elements" is_generic="false" instance_name="List_View1"></mutation>
+                                <field name="COMPONENT_SELECTOR">List_View1</field>
+                                <field name="PROP">Elements</field>
+                              </block>
+                            </value>
+                            <value name="NUM">
+                              <block type="math_number" id="=WCuf_u8,6V+rcWS.rpx">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="~L?KvN,%I;Ds:!t#(w|p">
+                            <field name="TEXT"> Type: 2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="component_set_get" id="EEj4a@mx(CiiU=wkg;8S">
+                        <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_out_phno_copy"></mutation>
+                        <field name="COMPONENT_SELECTOR">lbl_out_phno_copy</field>
+                        <field name="PROP">Text</field>
+                        <value name="VALUE">
+                          <block type="lists_select_item" id="^55S.zl+_EHxKmI0]6-h">
+                            <value name="LIST">
+                              <block type="component_set_get" id="zSVS?6g359Am.09Y|v47">
+                                <mutation component_type="ListView" set_or_get="get" property_name="Elements" is_generic="false" instance_name="List_View1"></mutation>
+                                <field name="COMPONENT_SELECTOR">List_View1</field>
+                                <field name="PROP">Elements</field>
+                              </block>
+                            </value>
+                            <value name="NUM">
+                              <block type="math_number" id="rGAG:*{qL.[SGR*V-8Js">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="component_set_get" id="W1/X5^[`I+ztMGt^`neD">
+                            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_out_date"></mutation>
+                            <field name="COMPONENT_SELECTOR">lbl_out_date</field>
+                            <field name="PROP">Text</field>
+                            <value name="VALUE">
+                              <block type="lists_select_item" id="r4k+.t$@iL``3Lsmi?{r">
+                                <value name="LIST">
+                                  <block type="component_set_get" id="`Oblh)%{dEr?-RU~X~1$">
+                                    <mutation component_type="ListView" set_or_get="get" property_name="Elements" is_generic="false" instance_name="List_View1"></mutation>
+                                    <field name="COMPONENT_SELECTOR">List_View1</field>
+                                    <field name="PROP">Elements</field>
+                                  </block>
+                                </value>
+                                <value name="NUM">
+                                  <block type="math_number" id="nf+8.m[^jW1NI9,Qb=J9">
+                                    <field name="NUM">3</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="component_set_get" id="Ob|?F6|EM+H]0=p*3Msh">
+                                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_out_date"></mutation>
+                                <field name="COMPONENT_SELECTOR">lbl_out_date</field>
+                                <field name="PROP">Text</field>
+                                <value name="VALUE">
+                                  <block type="text_contains" id="mT93%hb3qYYlj_+5V1PS">
+                                    <value name="TEXT">
+                                      <block type="text_trim" id="b-M{;2=I6}4n.L4nF)Kb"></block>
+                                    </value>
+                                    <value name="PIECE">
+                                      <block type="text" id="3({EM0!g5;v8U0N|;)C.">
+                                        <field name="TEXT">Date:</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="component_set_get" id="Q4Pu+C..=[Z5/Pf{Vd49">
+                                    <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_out_date"></mutation>
+                                    <field name="COMPONENT_SELECTOR">lbl_out_date</field>
+                                    <field name="PROP">Text</field>
+                                    <value name="VALUE">
+                                      <block type="component_method" id="U*kM81Eq]IipPz!P(X;V">
+                                        <mutation component_type="Clock" method_name="FormatDateTime" is_generic="false" instance_name="Clock1"></mutation>
+                                        <field name="COMPONENT_SELECTOR">Clock1</field>
+                                        <value name="ARG0">
+                                          <block type="component_set_get" id="n`B=Mrn5dp(BtKsR=9A|">
+                                            <mutation component_type="Label" set_or_get="get" property_name="Text" is_generic="false" instance_name="lbl_out_date"></mutation>
+                                            <field name="COMPONENT_SELECTOR">lbl_out_date</field>
+                                            <field name="PROP">Text</field>
+                                          </block>
+                                        </value>
+                                        <value name="ARG1">
+                                          <block type="text" id="LK*gAj!JkmY#dLK7k$KS">
+                                            <field name="TEXT">MM/dd/yyyy hh:mm:ss a</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="component_set_get" id="s|bd7mI`l18{J]nplFj.">
+                                        <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_out_duration"></mutation>
+                                        <field name="COMPONENT_SELECTOR">lbl_out_duration</field>
+                                        <field name="PROP">Text</field>
+                                        <value name="VALUE">
+                                          <block type="lists_select_item" id="{Gs!!lpKAv/b::5yTor{">
+                                            <value name="LIST">
+                                              <block type="component_set_get" id=";NX*514w#5-UstYzk[S`">
+                                                <mutation component_type="ListView" set_or_get="get" property_name="Elements" is_generic="false" instance_name="List_View1"></mutation>
+                                                <field name="COMPONENT_SELECTOR">List_View1</field>
+                                                <field name="PROP">Elements</field>
+                                              </block>
+                                            </value>
+                                            <value name="NUM">
+                                              <block type="math_number" id="/%*,Npwz|ldVGilP{[^S">
+                                                <field name="NUM">4</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="component_set_get" id="yNI^[5~-RD!*N^dG+e!F">
+                                            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_out_duration"></mutation>
+                                            <field name="COMPONENT_SELECTOR">lbl_out_duration</field>
+                                            <field name="PROP">Text</field>
+                                            <value name="VALUE">
+                                              <block type="text_contains" id="#yZHDIMp;g~7[0MEb6n/">
+                                                <value name="TEXT">
+                                                  <block type="text_trim" id="oi.eShWc:hIr0U]mI-F|">
+                                                    <value name="TEXT">
+                                                      <block type="component_set_get" id="D57(.Op9M4v|mwTaMGET">
+                                                        <mutation component_type="Label" set_or_get="get" property_name="Text" is_generic="false" instance_name="lbl_out_duration"></mutation>
+                                                        <field name="COMPONENT_SELECTOR">lbl_out_duration</field>
+                                                        <field name="PROP">Text</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="PIECE">
+                                                  <block type="text" id="hAW=KF~gxj9O9$rAT_L!">
+                                                    <field name="TEXT">Duration:</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="component_set_get" id="iN/gHFNVb%Jvz59;xm7n">
+                                                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_out_duration"></mutation>
+                                                <field name="COMPONENT_SELECTOR">lbl_out_duration</field>
+                                                <field name="PROP">Text</field>
+                                                <value name="VALUE">
+                                                  <block type="component_method" id="Ek~DWtuYx`mLnl2wM,.Q">
+                                                    <mutation component_type="Clock" method_name="FormatDateTime" is_generic="false" instance_name="Clock1"></mutation>
+                                                    <field name="COMPONENT_SELECTOR">Clock1</field>
+                                                    <value name="ARG0">
+                                                      <block type="component_set_get" id="7mb%cVOeM-Y.W]C[v@R$">
+                                                        <mutation component_type="Label" set_or_get="get" property_name="Text" is_generic="false" instance_name="lbl_out_duration"></mutation>
+                                                        <field name="COMPONENT_SELECTOR">lbl_out_duration</field>
+                                                        <field name="PROP">Text</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ARG1">
+                                                      <block type="text" id="LFR!M_QWvhoA4RcsW+F{">
+                                                        <field name="TEXT">MM/dd/yyyy hh:mm:ss a</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="controls_if" id="[P2lYrwrD`[AkO,Uw#U#">
+                        <value name="IF0">
+                          <block type="logic_compare" id="yOXlQw!|qpMZR|Zpjku%">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="lists_select_item" id="3IZ5_3nZm(Q4B;Oc|Tm=">
+                                <value name="LIST">
+                                  <block type="component_set_get" id=")dzlHf@,:Y.6c@Lp*xx)">
+                                    <mutation component_type="ListView" set_or_get="get" property_name="Elements" is_generic="false" instance_name="List_View1"></mutation>
+                                    <field name="COMPONENT_SELECTOR">List_View1</field>
+                                    <field name="PROP">Elements</field>
+                                  </block>
+                                </value>
+                                <value name="NUM">
+                                  <block type="math_number" id="n%6N:Va^B)K0+@s+nwPa">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="text" id="gF-65:rh8ur$iW]y}2t,">
+                                <field name="TEXT"> Type: 1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="component_set_get" id="0vj@z.e;B}}JSqoXcv},">
+                            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_in_phno"></mutation>
+                            <field name="COMPONENT_SELECTOR">lbl_in_phno</field>
+                            <field name="PROP">Text</field>
+                            <value name="VALUE">
+                              <block type="lists_select_item" id="2qKNS:pKaV`(rLYDyy2h">
+                                <value name="LIST">
+                                  <block type="component_set_get" id="R?T2;NrLl6]*IhcyC#Ux">
+                                    <mutation component_type="ListView" set_or_get="get" property_name="Elements" is_generic="false" instance_name="List_View1"></mutation>
+                                    <field name="COMPONENT_SELECTOR">List_View1</field>
+                                    <field name="PROP">Elements</field>
+                                  </block>
+                                </value>
+                                <value name="NUM">
+                                  <block type="math_number" id="HB,kiN(xy/9,4Uj$5(=R">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="component_set_get" id="{Jo^=R@xQ$+6#dtCKff=">
+                                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_in_date"></mutation>
+                                <field name="COMPONENT_SELECTOR">lbl_in_date</field>
+                                <field name="PROP">Text</field>
+                                <value name="VALUE">
+                                  <block type="lists_select_item" id="Vs+5q|qDoa?UrYco:bum">
+                                    <value name="LIST">
+                                      <block type="component_set_get" id="TzJN8K][r6!TE{i~5-,1">
+                                        <mutation component_type="ListView" set_or_get="get" property_name="Elements" is_generic="false" instance_name="List_View1"></mutation>
+                                        <field name="COMPONENT_SELECTOR">List_View1</field>
+                                        <field name="PROP">Elements</field>
+                                      </block>
+                                    </value>
+                                    <value name="NUM">
+                                      <block type="math_number" id="rB9g5Iv^z0U$E_-jB,qI">
+                                        <field name="NUM">3</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="component_set_get" id="^ksqsJEcv#V[80Met;.l">
+                                    <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_in_date"></mutation>
+                                    <field name="COMPONENT_SELECTOR">lbl_in_date</field>
+                                    <field name="PROP">Text</field>
+                                    <value name="VALUE">
+                                      <block type="text_contains" id="sYV2?5KW0pY*[Y+ROBJ0">
+                                        <value name="TEXT">
+                                          <block type="text_trim" id="tsJWr.$SZaNIQ7o6?f7F">
+                                            <value name="TEXT">
+                                              <block type="component_set_get" id="Y#6zps{Hhb.6Sfo/r)]J">
+                                                <mutation component_type="Label" set_or_get="get" property_name="Text" is_generic="false" instance_name="lbl_in_date"></mutation>
+                                                <field name="COMPONENT_SELECTOR">lbl_in_date</field>
+                                                <field name="PROP">Text</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="PIECE">
+                                          <block type="text" id="TGPx8ss:j[8j;}4S9ENm">
+                                            <field name="TEXT">Date:</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="component_set_get" id="^[,0RWBL)$A`MNBjJ7s_">
+                                        <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_in_date"></mutation>
+                                        <field name="COMPONENT_SELECTOR">lbl_in_date</field>
+                                        <field name="PROP">Text</field>
+                                        <value name="VALUE">
+                                          <block type="component_method" id="m4Is{w0dZewzXL2D/uaG">
+                                            <mutation component_type="Clock" method_name="FormatDateTime" is_generic="false" instance_name="Clock1"></mutation>
+                                            <field name="COMPONENT_SELECTOR">Clock1</field>
+                                            <value name="ARG0">
+                                              <block type="component_set_get" id="Z4qh*%dI`8v;-DsWbS]A">
+                                                <mutation component_type="Label" set_or_get="get" property_name="Text" is_generic="false" instance_name="lbl_in_date"></mutation>
+                                                <field name="COMPONENT_SELECTOR">lbl_in_date</field>
+                                                <field name="PROP">Text</field>
+                                              </block>
+                                            </value>
+                                            <value name="ARG1">
+                                              <block type="text" id="?cMCS/}W[@sqG,zm/4LN">
+                                                <field name="TEXT">MM/dd/yyyy hh:mm:ss a</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="component_set_get" id="J`V$Nhpzn2#XtGR=Uy4@">
+                                            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_in_duration"></mutation>
+                                            <field name="COMPONENT_SELECTOR">lbl_in_duration</field>
+                                            <field name="PROP">Text</field>
+                                            <value name="VALUE">
+                                              <block type="lists_select_item" id="Q/]/P,Rq}{[hINC|MzHN">
+                                                <value name="LIST">
+                                                  <block type="component_set_get" id="A=.MzHzMVJj9uwyrxN=i">
+                                                    <mutation component_type="ListView" set_or_get="get" property_name="Elements" is_generic="false" instance_name="List_View1"></mutation>
+                                                    <field name="COMPONENT_SELECTOR">List_View1</field>
+                                                    <field name="PROP">Elements</field>
+                                                  </block>
+                                                </value>
+                                                <value name="NUM">
+                                                  <block type="math_number" id="1$.aV0UHSNdFsQ_acM!@">
+                                                    <field name="NUM">4</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="component_set_get" id="yRM90]YtQ1~dpEyM:52W">
+                                                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_in_duration"></mutation>
+                                                <field name="COMPONENT_SELECTOR">lbl_in_duration</field>
+                                                <field name="PROP">Text</field>
+                                                <value name="VALUE">
+                                                  <block type="text_contains" id="J*6JLMX{H7y=6c=k}87o">
+                                                    <value name="TEXT">
+                                                      <block type="text_trim" id="Q5_fsM#n8EljnXUyM`%A">
+                                                        <value name="TEXT">
+                                                          <block type="component_set_get" id="Y]LOz(:,;4Rv@t:OdeTu">
+                                                            <mutation component_type="Label" set_or_get="get" property_name="Text" is_generic="false" instance_name="lbl_in_duration"></mutation>
+                                                            <field name="COMPONENT_SELECTOR">lbl_in_duration</field>
+                                                            <field name="PROP">Text</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="PIECE">
+                                                      <block type="text" id="^%:)Y*[;Bjy?Sc1;DIM~">
+                                                        <field name="TEXT">Duration:</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="component_set_get" id="~n#U!]MNCY4NsUiH=tNg">
+                                                    <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_in_duration"></mutation>
+                                                    <field name="COMPONENT_SELECTOR">lbl_in_duration</field>
+                                                    <field name="PROP">Text</field>
+                                                    <value name="VALUE">
+                                                      <block type="component_method" id="A)0sjHmPfK4~8B-$FYnw">
+                                                        <mutation component_type="Clock" method_name="FormatDateTime" is_generic="false" instance_name="Clock1"></mutation>
+                                                        <field name="COMPONENT_SELECTOR">Clock1</field>
+                                                        <value name="ARG0">
+                                                          <block type="component_set_get" id="TS/t1DlzSbGdxrMIVR7s">
+                                                            <mutation component_type="Label" set_or_get="get" property_name="Text" is_generic="false" instance_name="lbl_in_duration"></mutation>
+                                                            <field name="COMPONENT_SELECTOR">lbl_in_duration</field>
+                                                            <field name="PROP">Text</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="ARG1">
+                                                          <block type="text" id="{qnwQp@7Q]iSec3#H?=(">
+                                                            <field name="TEXT">MM/dd/yyyy hh:mm:ss a</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="3,B2YSaKi$4]aGVDe|Jd" x="-690" y="150">
+    <mutation component_type="PhoneCall" is_generic="false" instance_name="Phone_Call1" event_name="PhoneCallEnded"></mutation>
+    <field name="COMPONENT_SELECTOR">Phone_Call1</field>
+    <statement name="DO">
+      <block type="component_method" id="vUkF+iyD0)yL3Oa9XdAr">
+        <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="Notifier1"></mutation>
+        <field name="COMPONENT_SELECTOR">Notifier1</field>
+        <value name="ARG0">
+          <block type="text_join" id="Ja_lax4cTipx-)?=@QX.">
+            <mutation items="4"></mutation>
+            <value name="ADD0">
+              <block type="text" id="[3mvT-V-x,JLG,2269t_">
+                <field name="TEXT">End Call</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="lexical_variable_get" id="W.)nZE0t_Ozp.z$irM@G">
+                <mutation>
+                  <eventparam name="status"></eventparam>
+                </mutation>
+                <field name="VAR">status</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="K0HMF5Bkl}NjS0dm?:Ls">
+                <field name="TEXT">Phone Number</field>
+              </block>
+            </value>
+            <value name="ADD3">
+              <block type="lexical_variable_get" id="7RlHG:%Ov2f$`FN%%Ms,">
+                <mutation>
+                  <eventparam name="phoneNumber"></eventparam>
+                </mutation>
+                <field name="VAR">phoneNumber</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="text_split" id="8Pz7[SUQmsgQwZ;[YZgv" x="810" y="210">
+    <mutation mode="SPLITATANY"></mutation>
+    <field name="OP">SPLITATANY</field>
+    <value name="TEXT">
+      <block type="component_set_get" id="^#WSKKl*SM-nyNL0n4_2">
+        <mutation component_type="Label" set_or_get="get" property_name="Text" is_generic="false" instance_name="lbl_out_date"></mutation>
+        <field name="COMPONENT_SELECTOR">lbl_out_date</field>
+        <field name="PROP">Text</field>
+      </block>
+    </value>
+    <value name="AT">
+      <block type="lists_select_item" id="OOn;BZFt(7O)ujm}H/s@"></block>
+    </value>
+  </block>
+  <block type="component_event" id="VYw^p3s)bhIdf#9Joi4B" x="-690" y="410">
+    <mutation component_type="Button" is_generic="false" instance_name="btn_acceptcall" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">btn_acceptcall</field>
+    <statement name="DO">
+      <block type="component_method" id="zh+H_k*cA;M8Ems@#@9z">
+        <mutation component_type="JmlPhoneCall" method_name="AcceptRingingCall" is_generic="false" instance_name="JmlPhoneCall1"></mutation>
+        <field name="COMPONENT_SELECTOR">JmlPhoneCall1</field>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="JM]$Vje/5CuX0Os{7jRR" x="-690" y="510">
+    <mutation component_type="Button" is_generic="false" instance_name="btn_endcall" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">btn_endcall</field>
+    <statement name="DO">
+      <block type="component_method" id="91tC5RAQEk^x=ZFRPvzd">
+        <mutation component_type="JmlPhoneCall" method_name="EndCall" is_generic="false" instance_name="JmlPhoneCall1"></mutation>
+        <field name="COMPONENT_SELECTOR">JmlPhoneCall1</field>
+      </block>
+    </statement>
+  </block>
+  <block type="component_method" id="Wcx1npI+Cbz(Neb42AF%" x="890" y="730">
+    <mutation component_type="Clock" method_name="DurationToHours" is_generic="false" instance_name="Clock1"></mutation>
+    <field name="COMPONENT_SELECTOR">Clock1</field>
+  </block>
+  <block type="math_number" id="2mqfu[!/uwZ/w`Fqz=bh" x="489" y="820">
+    <field name="NUM">3</field>
+  </block>
+  <block type="lists_select_item" id="W(J;=HwDISJ(~anG*:#8" x="910" y="830">
+    <value name="LIST">
+      <block type="component_set_get" id="z_F|gdRn-TuiSXekb7D^">
+        <mutation component_type="ListView" set_or_get="get" property_name="Elements" is_generic="false" instance_name="List_View1"></mutation>
+        <field name="COMPONENT_SELECTOR">List_View1</field>
+        <field name="PROP">Elements</field>
+      </block>
+    </value>
+    <value name="NUM">
+      <block type="math_number" id="7A4X%`bs3HdQ1E}ZsCv^">
+        <field name="NUM">4</field>
+      </block>
+    </value>
+  </block>
+  <yacodeblocks ya-version="243" language-version="34"></yacodeblocks>
+</xml>
